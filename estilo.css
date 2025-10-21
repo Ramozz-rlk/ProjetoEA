@@ -1,91 +1,103 @@
-:root{
-    --bg:#f6f7fb;
-    --card:#ffffff;
-    --accent:#1e88e5;
-    --text:#222;
-    --muted:#555;
-    --max-w:1000px;
-    --radius:12px;
-    --gap:18px;
-    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+:root {
+  --bg: #f6f7fb;
+  --card-bg: #ffffff;
+  --accent: #1e88e5;
+  --text: #222;
+  --muted: #555;
+  --radius: 12px;
+  --max-width: 1000px;
+  --gap: 20px;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(180deg, var(--bg), #eef2f9);
+  color: var(--text);
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  width: calc(100% - 40px);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.site-header {
+  width: 100%;
+  background: linear-gradient(90deg, rgba(30,136,229,0.12), rgba(30,136,229,0.05));
+  border-bottom: 1px solid rgba(30,136,229,0.06);
+  padding: 24px 0;
+  text-align: center;
+  box-shadow: 0 3px 6px rgba(30,136,229,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.site-header h1 {
+  font-size: 2rem;
+  color: var(--accent);
+  letter-spacing: 0.2px;
+  margin-bottom: 8px;
+}
+
+.site-header .tagline {
+  font-size: 1rem;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+/* main layout */
+main.container {
+  width: 100%;
+  max-width: var(--max-width);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  padding: 30px 0;
+}
+
+/* cards empty, but with visual spacing */
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgba(30,30,60,0.05);
+  border: 1px solid rgba(15,15,30,0.05);
+  padding: 20px;
+  min-height: 80px; /* to keep some visible height */
+}
+
+.card h2 {
+  margin: 0;
+  color: #163a5f;
+  font-size: 1.25rem;
+}
+
+/* highlight card */
+.highlight {
+  border-left: 6px solid var(--accent);
+  background: linear-gradient(90deg, rgba(30,136,229,0.03), rgba(255,255,255,0));
+}
+
+/* Responsive */
+@media (min-width: 900px) {
+  main.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
   }
-  
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0;
-    background:linear-gradient(180deg,var(--bg),#eef2f9);
-    color:var(--text);
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    line-height:1.45;
-  }
-  
-  /* layout */
-  .container{
-    width:calc(100% - 40px);
-    max-width:var(--max-w);
-    margin:0 auto;
-    padding:28px 0;
-  }
-  
-  /* header */
-  .site-header{
-    background:linear-gradient(90deg, rgba(30,136,229,0.12), rgba(30,136,229,0.05));
-    border-bottom:1px solid rgba(30,136,229,0.06);
-    padding:22px 0;
-  }
-  .site-header h1{
-    margin:0;
-    font-size:28px;
-    color:var(--accent);
-    letter-spacing:0.2px;
-  }
-  .site-header .tagline{
-    margin:6px 0 0;
-    color:var(--muted);
-  }
-  
-  /* cards */
-  .card{
-    background:var(--card);
-    border-radius:var(--radius);
-    padding:18px;
-    margin:var(--gap) 0;
-    box-shadow:0 6px 18px rgba(30,30,60,0.04);
-    border:1px solid rgba(15,15,30,0.03);
-  }
-  .card h2{margin-top:0;color:#163a5f}
-  .card h3{margin:12px 0 6px;color:#234a6a}
-  .card ul{padding-left:18px; color:var(--muted)}
-  
-  /* highlight */
-  .highlight{
-    border-left:6px solid var(--accent);
-    background:linear-gradient(90deg, rgba(30,136,229,0.03), rgba(255,255,255,0));
-  }
-  
-  /* footer */
-  .site-footer{
-    margin:32px 0 80px;
-    text-align:center;
-    color:var(--muted);
-    font-size:0.95rem;
-  }
-  
-  /* responsive */
-  @media (min-width:900px){
-    main.container{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:20px;
-    }
-    .card{margin:0}
-    .site-header .container{display:flex; justify-content:space-between; align-items:center}
-    .site-footer{grid-column:1/-1}
-  }
-  
-  /* small tweaks for readability */
-  p, li{font-size:0.98rem}
-  .call-to-action{margin-top:12px; font-weight:600}
-  
+}
