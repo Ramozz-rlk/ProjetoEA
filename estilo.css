@@ -101,3 +101,14 @@ main.container {
     gap: 24px;
   }
 }
+p3 {
+  font-weight: bold;
+}
+
+img {
+  width: 800px;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+  border-radius: 10px;
+}
